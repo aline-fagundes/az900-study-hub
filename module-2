@@ -1,0 +1,37 @@
+# 📘 AZ-900 Summary: Module 2 – Describe Azure Architecture and Services (35–40%)
+
+## 🧩 Core Architectural Components of Azure
+
+### Datacenter 
+A **datacenter** is a physical facility used to house groups of networked servers. 
+
+- Each datacenter includes its own **power**, **cooling**, and **networking infrastructure**, ensuring independent operation.
+- Supports Azure’s physical foundation.
+- Each datacenter can host many Azure services and hardware resources.
+
+### Region
+A **region** is a geographical area on the planet that contains **one or more datacenters** connected through a **low-latency network** (typically <2ms).
+
+- Serves as a deployment location for services.
+- Azure has **50+ regions**, including:
+  - Standard commercial regions;
+  - Specialized government regions (US DoD Central, US Gov Virginia);
+  - Partnered regions (China East, China North).
+- Some services are **regional** (VMs, storage), others are **global** (Microsoft Entra ID, DNS).
+- Some services or VMs features are available only in select regions.
+
+### Availability Zone
+**Availability Zones** are physically separate locations **within a single Azure region**, each with its own **independent power, cooling, and networking**.
+
+- A zone is one or more data centers.
+- Designed to protect applications and data from datacenter failures.
+- Not all regions support Availability Zones.
+- A region with Availability Zones has at least **three separate zones**.
+
+**Service Categories**:
+- **Zonal Services**: Deployed directly into a specific zone (VMs, managed disks,  IP addresses).
+- **Zone-Redundant Services**: Automatically replicated across zones (SQL Database, Azure Storage).
+- **Non-Regional Services**: Resilient by default and globally distributed (Microsoft Entra ID, Azure DNS).
+
+### Region Pairs
+...

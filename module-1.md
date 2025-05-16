@@ -1,8 +1,8 @@
-# Module 1: Describe Cloud Concepts (25–30%)
+# 📘 AZ-900 Summary: Module 1 – Describe Cloud Concepts (25–30%)
 
-## ☁️ Benefits and Considerations of Cloud Computing
+## ☁️ Cloud Computing Overview
 
-### 🔑 Key Characteristics
+### 🔑 What is Cloud Computing?
 - **Cloud Computing**: Delivery model of computing services over the internet. These services typically include:
     - Compute Power: Virtual machines, containers, and hosting environments (Windows/Linux servers).
     - Storage: File systems, object storage, and databases for structured and unstructured data.
@@ -23,14 +23,14 @@
 
 ---
 
-## 📉 Economies of Scale
+## 💸 Cloud Economics
+
+### 📉 Economies of Scale
 - As organizations grow, unit costs decrease.
 - Cloud providers like Microsoft can offer discounted or even free services due to shared infrastructure.
 - Cost reductions passed on to customers via volume pricing.
 
----
-
-## 💰 CapEx vs. OpEx
+### 💰 CapEx vs. OpEx
 | Feature              | Capital Expenditure (CapEx) | Operational Expenditure (OpEx) |
 |----------------------|-----------------------------|---------------------------------|
 | Upfront Cost         | High                        | None                            |
@@ -42,9 +42,7 @@
 
 - **Cloud = OpEx**: Pay for services based on consumption.
 
----
-
-## 📊 Consumption-Based Model
+### 📊 Consumption-Based Model
 - **Pay-As-You-Go (PAYG)**: Customers are only charged based on their resource usage.
 - **No upfront costs**: You avoid capital expenditure and pay only for what you consume.
 - **Stop paying** when services are stopped or deallocated.
@@ -53,7 +51,7 @@
   - A **Virtual Machine** incurs charges while it’s running, as it consumes CPU, RAM, and other infrastructure—even if it's idle.
   - **Blob Storage** incurs charges as long as data is stored, regardless of whether it's accessed frequently.
 
-### 🔍 How It Works
+#### 🔍 How It Works
 - Each Azure service tracks **granular consumption metrics** (storage size, number of transactions, bandwidth, processing time).
 - These metrics are aggregated to calculate your billing.
 - Because usage is measured in fine detail, Azure can offer **flexible and optimized pricing** for a wide variety of scenarios and workloads.
@@ -61,6 +59,7 @@
 ---
 
 ## 🛠️ Cloud Service Models (IaaS, PaaS, SaaS)
+
 ### 🔁 Shared Responsibility Model
 When using any cloud service, you’re always responsible for:
 - **Data** – The information and content you store and manage.
@@ -121,7 +120,8 @@ Responsibility for other layers depends on the **service model** used:
 
 ---
 
-## ☁️ Cloud Deployment Models
+## 🌍 Cloud Deployment Models
+
 Cloud deployment models define **where** and **how** computing resources are hosted, managed, and accessed. The three primary models are **Public**, **Private**, and **Hybrid** cloud.
 
 | Deployment Model | Cloud Provider Infra | Private Infra | Description                                      |
@@ -201,18 +201,25 @@ Cloud deployment models define **where** and **how** computing resources are hos
 
 ## 📚 Study Resources
 
-- 🎓 **Microsoft Learn**: [Explore key cloud concepts](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/)
-- 🎥 [Cloud Computing and Vocabulary (YouTube)](https://www.youtube.com/watch?v=Pt9LelJ0fL0)
-- 🌐 [NIST Definition of Cloud Computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
-- 🌐 [Wikipedia: Cloud Computing](https://en.wikipedia.org/wiki/Cloud_computing)
-- 🎥 [Principles of economies of scale (YouTube)](https://youtu.be/TMynEWIE3SM)
-- 🌐 [Wikipedia: Economies of Scale](https://en.wikipedia.org/wiki/Economies_of_scale)
-- 🎥 [Capital Expenditure (CapEx) vs Operational Expenditure (OpEx) and their differences (YouTube)](https://youtu.be/7KEygnLtRyE)
-- 🎥 [Consumption-based model (YouTube)](https://youtu.be/NdqncsMtryY)
-- 🔹 [Consumption and fixed cost models (Azure)](https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model?WT.mc_id=AZ-MVP-5003556)
-- 🎥 [IaaS, PaaS, SaaS and their differences (YouTube)](https://youtu.be/9CVBohl6w0Q)
-- 🔹 [What is IaaS? (Azure)](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-iaas/?WT.mc_id=AZ-MVP-5003556)
-- 🔹 [What is PaaS? (Azure)](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-paas/?WT.mc_id=AZ-MVP-5003556)
-- 🔹 [What is SaaS? (Azure)](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-saas/?WT.mc_id=AZ-MVP-5003556)
-- 🎥 [Public, Private, Hybrid cloud and their differences (YouTube)](https://youtu.be/XlNR7myQydI)
-- 🔹 [Cloud Deployment Models (Azure)](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-private-public-hybrid-clouds/?WT.mc_id=AZ-MVP-5003556)
+### ☁️ **Cloud Computing Overview**
+- **Microsoft Learn**: [Explore key cloud concepts](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/)
+- **YouTube**: [Cloud Computing and Vocabulary](https://www.youtube.com/watch?v=Pt9LelJ0fL0)
+- **NIST**: [Definition of Cloud Computing (PDF)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+- **Wikipedia**: [Cloud Computing](https://en.wikipedia.org/wiki/Cloud_computing)
+
+### 💸 **Cloud Economics**
+- **YouTube**: [Principles of Economies of Scale](https://youtu.be/TMynEWIE3SM)
+- **Wikipedia**: [Economies of Scale](https://en.wikipedia.org/wiki/Economies_of_scale)
+- **YouTube**: [CapEx vs OpEx Explained](https://youtu.be/7KEygnLtRyE)
+- **YouTube**: [Consumption-Based Model Overview](https://youtu.be/NdqncsMtryY)
+- **Microsoft Docs**: [Consumption and Fixed Cost Models](https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model?WT.mc_id=AZ-MVP-5003556)
+
+### 🛠️ **Cloud Service Models (IaaS, PaaS, SaaS)**
+- **YouTube**: [IaaS, PaaS, SaaS Explained](https://youtu.be/9CVBohl6w0Q)
+- **Microsoft Docs**: [What is IaaS?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-iaas/?WT.mc_id=AZ-MVP-5003556)  
+- **Microsoft Docs**: [What is PaaS?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-paas/?WT.mc_id=AZ-MVP-5003556)  
+- **Microsoft Docs**: [What is SaaS?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-saas/?WT.mc_id=AZ-MVP-5003556)
+
+### 🌍 **Cloud Deployment Models**
+- **YouTube**: [Public, Private, Hybrid Clouds Explained](https://youtu.be/XlNR7myQydI)
+- **Microsoft Docs**: [Cloud Deployment Models](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-private-public-hybrid-clouds/?WT.mc_id=AZ-MVP-5003556)

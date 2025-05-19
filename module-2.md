@@ -172,6 +172,12 @@ Azure Virtual Desktop provides **desktop and app virtualization** from the cloud
 - Enhances **security** and **centralized management** using Microsoft Entra ID and RBAC.
 - Separates local devices from cloud-hosted data for improved security.
 
+### 💻 Azure VMware Solution
+Service for running VMware workloads **natively in Azure**.
+
+- Ideal for organizations using VMware on-premises and migrating to the cloud.
+- Provides **seamless integration** and **scalability** using familiar VMware tools.
+
 ### 📦 Containers and Orchestration
 
 #### 🧱 Azure Container Instances (ACI)
@@ -221,14 +227,6 @@ Azure Virtual Desktop provides **desktop and app virtualization** from the cloud
   - Microservices;
   - IoT event handling;
   - Real-time data processing.
-
----
-
-### 💻 Azure VMware Solution
-Service for running VMware workloads **natively in Azure**.
-
-- Ideal for organizations using VMware on-premises and migrating to the cloud.
-- Provides **seamless integration** and **scalability** using familiar VMware tools.
 
 ---
 

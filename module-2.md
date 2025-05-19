@@ -85,16 +85,21 @@ Any object created, provisioned, or managed in Azure.
 - Represented as **JSON** objects with metadata and configuration definitions.
 
 ### 📁 Resource Groups
-Logical containers that organize related resources for management and billing.
+Logical containers that organize related resources.
 
 - Every resource must belong to **one** resource group.
 - A resource group has a **location** but can host resources in multiple regions.
 - Resources can be **moved** between groups.
+- Resources inherit settings from resource groups.
 - **Resource groups cannot be nested**.
-
-**Best Practices**:
-- Group by **lifecycle**, **application**, **environment**, or **department**.
-- Use for **role-based access control (RBAC)**, **cost tracking**, and **automation**.
+- Commonly group by:
+  - Type;
+  - Lifecycle;
+  - App;
+  - Environment;
+  - Department;
+  - Billing;
+  - Location.
 
 ### 🧠 Azure Resource Manager (ARM)
 The **management layer** that enables to deploy, manage, and organize Azure resources consistently.
@@ -103,17 +108,145 @@ The **management layer** that enables to deploy, manage, and organize Azure reso
 - Enables **infrastructure as code**, tagging, policy enforcement, and automation.
 
 ### 📜 Subscriptions
-A logical container for billing, access, and provisioning.
+A logical container to logically organize resource groups by billing, access management, and provisioning.
 
 - Provide **authenticated access** to Azure resources.
 - Enable **separation of billing**, **resource quotas**, and **service access**.
 - An account can have **multiple subscriptions**, but only **one is required**.
+- Resource groups inherit settings from subscriptions.
 
 ### 🏢 Management Groups
 Provide a scope above subscriptions for **centralized governance**.
 
-- **Inheritance**: Policies, access controls applied to a management group cascade to all subscriptions beneath it.
 - **Supports nesting** (up to 6 levels deep).
 - Limit: **10,000** management groups per directory.
+- Each management group and subscription can support only **one parent**.
+- Subscriptions inherit settings from management groups.
 
 ---
+
+## ⚙️ Azure Compute and Networking Services
+
+### 🖥️ Azure Compute Services
+
+#### 🧱 Virtual Machines (VMs)
+**Virtual Machines (VMs)** are Azure's IaaS compute offering.
+
+- Provides **full control** over OS, environment, and configurations.
+- Supports **marketplace** and **custom images**.
+- Ideal for:
+  - Custom software that requires specific system settings.
+  - Legacy application hosting.
+  - Lift-and-shift migrations.
+  - Running web apps, databases, desktop apps, and more.
+
+**VM Resources** typically include:
+- Size (CPU, memory);
+- Storage (HDD/SSD);
+- Networking (VNet, public IP, NSG rules).
+
+  > * Virtualization is the **emulation of physical machines** using software. It allows multiple virtual environments to run on a single physical machine.
+
+#### 🔄 Virtual Machine Scale Sets
+**VM Scale Sets** are an IaaS service that allows you to deploy and manage a set of **identical, load-balanced VMs**.
+
+- Built-in **auto-scaling** features based on metrics or schedules.
+- Best for:
+  - Large-scale services such as **web apps** or **batch jobs**.
+- Integrates with Azure Load Balancer by default.
+
+#### 🧳 Availability Sets
+**Availability Sets** are a **resiliency feature** for VMs, designed to increase uptime during maintenance or failure events.
+
+- Groups VMs into:
+  - **Fault domains**: Separate power/network hardware.
+  - **Update domains**: Groupings for rolling updates without full outage.
+- Ensures high availability during maintenance or unexpected failures.
+- No additional cost.
+
+#### 🖥️ Azure Virtual Desktop
+Azure Virtual Desktop provides **desktop and app virtualization** from the cloud.
+
+- Allows users to access Windows desktops and apps **from anywhere**.
+- Supports **multi-session Windows 10/11 Enterprise**, enabling multiple users per VM.
+- Enhances **security** and **centralized management** using Microsoft Entra ID and RBAC.
+- Separates local devices from cloud-hosted data for improved security.
+
+### 📦 Containers and Orchestration
+
+#### 🧱 Azure Container Instances (ACI)
+**PaaS** for running **single-container** instances quickly.
+
+- No need to manage VMs or orchestration services.
+- Serverless, billed per second.
+- Ideal for:
+  - Background tasks;
+  - Event-driven apps;
+  - Microservices.
+
+#### ⚙️ Azure Container Apps
+**PaaS** managed container service with scaling and traffic control.
+
+- Supports multiple containers and microservices scenarios.
+- Integrated with **Dapr**, **KEDA**, and **Envoy** for advanced routing.
+
+#### 🧩 Azure Kubernetes Service (AKS)
+**PaaS** solution for **container orchestration**.
+
+- Based on the open-source **Kubernetes** platform.
+- Used to deploy, manage, and scale complex container-based applications.
+- Highly customizable, supports auto-scaling, and integrates with CI/CD pipelines.
+
+### 🌐 Web Apps and Serverless Compute
+
+#### 🔧 Azure App Service
+**PaaS** for hosting **web apps, REST APIs, and mobile backends**.
+
+- Supports multiple languages (.NET, Node.js, Python, PHP, Java).
+- Features:
+  - Built-in load balancing and autoscaling;
+  - Deployment slots for staging and testing;
+  - Integration with GitHub and DevOps pipelines.
+
+#### ⚡ Azure Functions
+**Serverless event-driven** compute service.
+  
+- Supports:
+  - **Stateless functions** (default behavior);
+  - **Durable Functions** for stateful workflows.
+- **Pricing models**:
+  - **Consumption plan**: Auto-scales, pay-per-execution;
+  - **Premium/dedicated plans**: Pre-warmed, reserved capacity.
+- Ideal for:
+  - Microservices;
+  - IoT event handling;
+  - Real-time data processing.
+
+---
+
+### 💻 Azure VMware Solution
+Service for running VMware workloads **natively in Azure**.
+
+- Ideal for organizations using VMware on-premises and migrating to the cloud.
+- Provides **seamless integration** and **scalability** using familiar VMware tools.
+
+---
+
+### 🧠 Summary Table
+
+| Service                     | Model        | Use Case                                               |
+|-----------------------------|--------------|--------------------------------------------------------|
+| **Virtual Machines**        | IaaS         | Custom OS/config, legacy apps, full control            |
+| **VM Scale Sets**           | IaaS         | Auto-scaled and load-balanced identical VMs            |
+| **Availability Sets**       | IaaS         | Fault-tolerance across power/network infrastructure    |
+| **Azure Virtual Desktop**   | PaaS         | Cloud-hosted desktop and app virtualization            |
+| **Container Instances**     | PaaS         | Lightweight single-container deployments               |
+| **Container Apps**          | PaaS         | Microservices and scalable container solutions         |
+| **Kubernetes Service (AKS)**| PaaS         | Complex container orchestration                        |
+| **App Services**            | PaaS         | Web apps, REST APIs, auto-scaled backend               |
+| **Azure Functions**         | Serverless   | Microservices, real-time processing, event-driven code |
+| **Azure VMware Solution**   | Hybrid IaaS  | Migrate/extend on-prem VMware workloads                |
+
+---
+
+### 🌐 Azure Networking Services

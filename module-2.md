@@ -232,18 +232,18 @@ Service for running VMware workloads **natively in Azure**.
 
 ### 🧠 Summary Table
 
-| Service                     | Model        | Use Case                                               |
-|-----------------------------|--------------|--------------------------------------------------------|
-| **Virtual Machines**        | IaaS         | Custom OS/config, legacy apps, full control            |
-| **VM Scale Sets**           | IaaS         | Auto-scaled and load-balanced identical VMs            |
-| **Availability Sets**       | IaaS         | Fault-tolerance across power/network infrastructure    |
-| **Azure Virtual Desktop**   | PaaS         | Cloud-hosted desktop and app virtualization            |
-| **Container Instances**     | PaaS         | Lightweight single-container deployments               |
-| **Container Apps**          | PaaS         | Microservices and scalable container solutions         |
-| **Kubernetes Service (AKS)**| PaaS         | Complex container orchestration                        |
-| **App Services**            | PaaS         | Web apps, REST APIs, auto-scaled backend               |
-| **Azure Functions**         | Serverless   | Microservices, real-time processing, event-driven code |
-| **Azure VMware Solution**   | Hybrid IaaS  | Migrate/extend on-prem VMware workloads                |
+| Service                     | Model | Use Case                                                                          |
+|-----------------------------|-------|-----------------------------------------------------------------------------------|
+| **Virtual Machines**        | IaaS  | Custom OS/config, legacy apps, full control                                       |
+| **VM Scale Sets**           | IaaS  | Auto-scaled and load-balanced identical VMs                                       |
+| **Availability Sets**       | IaaS  | Fault-tolerance across power/network infrastructure                               |
+| **Azure Virtual Desktop**   | PaaS  | Cloud-hosted desktop and app virtualization                                       |
+| **Container Instances**     | PaaS  | Lightweight single-container deployments                                          |
+| **Container Apps**          | PaaS  | Microservices and scalable container solutions                                    |
+| **Kubernetes Service (AKS)**| PaaS  | Complex container orchestration                                                   |
+| **App Services**            | PaaS  | Web apps, REST APIs, auto-scaled backend                                          |
+| **Azure Functions**         | FaaS  | Micro and nano services, consumption-based pricing, event-driven code, serverless |
+| **Azure VMware Solution**   | IaaS  | Migrate/extend on-prem VMware workloads                                           |
 
 ---
 

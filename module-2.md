@@ -63,7 +63,7 @@ Azure groups most regions into **region pairs** to ensure resilience, disaster r
 - US Government: US Gov Virginia, US DoD Central;
 - China: China North, China East.
 
-#### 🌎 Geographies
+### 🌎 Geographies
 An **Azure geography** is a discrete market containing two or more regions, designed to preserve **data residency**, **compliance**, and **sovereignty**.
 
 - Each region belongs to one geography.
@@ -172,15 +172,15 @@ Azure Virtual Desktop provides **desktop and app virtualization** from the cloud
 - Enhances **security** and **centralized management** using Microsoft Entra ID and RBAC.
 - Separates local devices from cloud-hosted data for improved security.
 
-### 💻 Azure VMware Solution
+#### 💻 Azure VMware Solution
 Service for running VMware workloads **natively in Azure**.
 
 - Ideal for organizations using VMware on-premises and migrating to the cloud.
 - Provides **seamless integration** and **scalability** using familiar VMware tools.
 
-### 📦 Containers and Orchestration
+#### 📦 Containers and Orchestration
 
-#### 🧱 Azure Container Instances (ACI)
+##### 🧱 Azure Container Instances (ACI)
 **PaaS** for running **single-container** instances quickly.
 
 - No need to manage VMs or orchestration services.
@@ -190,22 +190,22 @@ Service for running VMware workloads **natively in Azure**.
   - Event-driven apps;
   - Microservices.
 
-#### ⚙️ Azure Container Apps
+##### ⚙️ Azure Container Apps
 **PaaS** managed container service with scaling and traffic control.
 
 - Supports multiple containers and microservices scenarios.
 - Integrated with **Dapr**, **KEDA**, and **Envoy** for advanced routing.
 
-#### 🧩 Azure Kubernetes Service (AKS)
+##### 🧩 Azure Kubernetes Service (AKS)
 **PaaS** solution for **container orchestration**.
 
 - Based on the open-source **Kubernetes** platform.
 - Used to deploy, manage, and scale complex container-based applications.
 - Highly customizable, supports auto-scaling, and integrates with CI/CD pipelines.
 
-### 🌐 Web Apps and Serverless Compute
+#### 🌐 Web Apps and Serverless Compute
 
-#### 🔧 Azure App Service
+##### 🔧 Azure App Service
 **PaaS** for hosting **web apps, REST APIs, and mobile backends**.
 
 - Supports multiple languages (.NET, Node.js, Python, PHP, Java).
@@ -214,7 +214,7 @@ Service for running VMware workloads **natively in Azure**.
   - Deployment slots for staging and testing;
   - Integration with GitHub and DevOps pipelines.
 
-#### ⚡ Azure Functions
+##### ⚡ Azure Functions
 **Serverless event-driven** compute service.
   
 - Supports:

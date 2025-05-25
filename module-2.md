@@ -248,3 +248,146 @@ Service for running VMware workloads **natively in Azure**.
 ---
 
 ### 🌐 Azure Networking Services
+
+Azure Networking enables secure and scalable connectivity across Azure resources, between Azure and on-premises environments, and with the public internet. Key networking components help ensure **isolation**, **communication**, **routing**, **security**, and **performance**.
+
+#### 🛡️ Virtual Network (VNet)
+A **Virtual Network (VNet)** is a fundamental building block for private networking in Azure.
+
+- Enables **logical isolation and segmentation** of networked Azure resources.
+- Scopes to a **single region**.
+- Cross-regional communication can be enabled via **VNet Peering**.
+- Provides **IP address allocation**, **routing**, **filtering** and **traffic control**.
+
+**Capabilities**:
+- **Subnets**: Segment networks into smaller address spaces.
+- **NSGs / ASGs**: Apply security rules to control inbound/outbound traffic.
+- **Private/Public Endpoints**: Enable internal or internet-facing communication.
+- **Communication**: Between Azure VMs, services, and on-premises resources.
+
+> 🔸 Use VNets to build hybrid solutions or secure internal app communication.
+
+#### 🔁 Azure Load Balancer
+A **Layer 4 (TCP/UDP) load balancer** that distributes traffic across resources for performance and redundancy.
+
+- Supports **inbound** and **outbound** scenarios.
+- Two types:
+  - **Public** Load Balancer: For internet-facing workloads.
+  - **Internal** Load Balancer: For private/internal workloads.
+- Features:
+  - **Health probes** to monitor availability.
+  - **Port forwarding** and **NAT rules** for configuration.
+  - **High throughput** (millions of flows).
+
+> 🔸 Use Azure Load Balancer for stateless workloads requiring ultra-fast, low-latency distribution.
+
+#### 🔐 VPN Gateway
+A **VPN Gateway** provides encrypted tunnels over the public internet to connect on-premises and Azure networks securely.
+
+- Supports **site-to-site** and **point-to-site** VPN configurations.
+- Ideal for secure cross-premises communication over untrusted networks.
+- Can be deployed as **zone-redundant** for high availability.
+- Enables cross-regional communication of VNets.
+
+> 🔸 Choose VPN Gateway when budget-sensitive or using existing internet infrastructure.
+
+#### 🧭 Application Gateway
+A **Layer 7 (HTTP/HTTPS) load balancer** designed for web apps.
+
+- Features:
+  - **Web Application Firewall (WAF)** for OWASP protection.
+  - **SSL termination**, **URL-based routing**, **redirection**, **session affinity**.
+  - Autoscaling and zone redundancy.
+
+> 🔸 Best for intelligent traffic routing at the application layer.
+
+#### 🌍 Content Delivery Network (CDN)
+Azure CDN improves **latency and performance** for delivering web content to users.
+
+- Distributes cached content to **global POPs (Points of Presence)**.
+- Reduces load on origin servers.
+- Works well for static content: images, videos, scripts, stylesheets.
+
+> 🔸 Use Azure CDN to optimize web performance for global users.
+
+#### 🚇 ExpressRoute
+**ExpressRoute** creates a **private, dedicated connection** between on-prem infrastructure and Azure, bypassing the public internet.
+
+- Offers **higher reliability**, **faster speeds**, **lower latencies**, and **better security**.
+- Ideal for:
+  - Financial services
+  - Large data migrations
+  - Compliance-sensitive environments
+
+> 🔸 Use ExpressRoute for mission-critical workloads needing private connectivity.
+
+#### 🧭 Azure DNS
+Azure DNS is a **high-availability, ultra-fast DNS hosting service** for domain name resolution.
+
+- Hosted on Microsoft’s global infrastructure.
+- Does **not** support domain name purchasing — only hosting and resolution.
+
+> 🔸 Integrate Azure DNS with your domain registrar for scalable and reliable DNS management.
+
+---
+
+### 🧠 Summary Table
+
+| Service                 | Layer       | Purpose                                         |
+|-------------------------|-------------|-------------------------------------------------|
+| **Virtual Network**     | Network     | Internal networking, segmentation, hybrid setup |
+| **Load Balancer**       | Layer 4     | Distributes TCP/UDP traffic across VMs/services |
+| **VPN Gateway**         | Network     | Secure on-prem to Azure communication           |
+| **Application Gateway** | Layer 7     | HTTP/HTTPS load balancing + WAF                 |
+| **CDN**                 | Edge        | Low-latency delivery of static content          |
+| **ExpressRoute**        | Private WAN | Private, high-performance connection to Azure   |
+| **Azure DNS**           | DNS         | Domain resolution via Microsoft infrastructure  |
+
+---
+
+## 📚 Study Resources
+
+### 🧩 **Core Azure Architecture**
+- **YouTube**: [Azure Regions and Availability Zones](https://youtu.be/C-nNw1mGwzE)
+- **Microsoft Learn**: [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)
+- **Microsoft Learn**: [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/)
+- **Azure Speed Test**: [Measure Latency](http://azurespeedtest.azurewebsites.net/)
+
+### 🧱 **Azure Resource Management**
+- **YouTube**: [Azure Resource Groups and Resource Manager](https://youtu.be/gIhf-S7BCdo)
+- **YouTube**: [Managing Azure resources with Azure CLI](https://youtu.be/GqpwiyYsNIw)
+- **YouTube**: [Azure Resource Manager Templates](https://youtu.be/Ge_Sp-1lWZ4)
+- **Microsoft Learn**: [Resource Groups Overview](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/2-principles-of-resource-groups)
+- **Microsoft Learn**: [Tagging Resources](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/3-use-tagging-to-organize-resources)
+- **Microsoft Learn**: [Azure Resource Manager (ARM)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
+- **Microsoft Learn**: [ Resource Groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups)
+- **Microsoft Learn**: [Azure Management Groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview)
+- **Azure Resources Portal**: [Azure Resource JSON definition](https://resources.azure.com/)
+
+### ⚙️ **Azure Compute Services**
+- **YouTube**: [Azure Compute Services](https://youtu.be/inaXkN2UrFE)
+- **Microsoft Learn**: [Virtual Machines](https://azure.microsoft.com/en-in/resources/cloud-computing-dictionary/what-is-a-virtual-machine)
+- **Microsoft Learn**: [Virtual Machines Scale Sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/)
+- **Microsoft Learn**: [App Services](https://azure.microsoft.com/en-us/services/app-service/)
+- **Microsoft Learn**: [Azure Functions](https://azure.microsoft.com/en-us/services/functions/)
+- **Microsoft Learn**: [Container Instances](https://azure.microsoft.com/en-in/services/container-instances/)
+- **Microsoft Learn**: [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service)
+- **Wikipedia**: [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes)
+- **Kubernetes**: [Official Website](https://kubernetes.io/)
+- **Microsoft Learn**: [Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/overview)
+- **YouTube**: [Azure Virtual Machine (VM) Tutorial](https://youtu.be/iUaTq06m26g)
+- **YouTube**: [Azure App Service (Web Apps) Tutorial](https://youtu.be/4BwyqmRTrx8)
+- **YouTube**: [Azure Function Apps Tutorial](https://youtu.be/Vxf-rOEO1q4)
+- **YouTube**: [Azure Container Instances Tutorial](https://youtu.be/jAWLQFi4USk)
+
+### 🌐 **Azure Networking Services**
+- **YouTube**: [Azure Networking Services](https://youtu.be/5NMcM4zJPM4)
+- **Microsoft Learn**: [Virtual Network Overview](https://azure.microsoft.com/en-us/products/virtual-network/)
+- **Microsoft Learn**: [Load Balancer Overview](https://azure.microsoft.com/en-us/products/load-balancer/)
+- **Microsoft Learn**: [VPN Gateway Overview](https://azure.microsoft.com/en-in/services/vpn-gateway/)
+- **Microsoft Learn**: [Application Gateway Overview](https://azure.microsoft.com/en-us/products/application-gateway/)
+- **Microsoft Learn**: [Content Delivery Network (CDN)](https://azure.microsoft.com/en-us/products/cdn/)
+- **Microsoft Learn**: [ExpressRoute Overview](https://learn.microsoft.com/en-us/azure/expressroute/)
+- **Microsoft Learn**: [Azure DNS Overview](https://learn.microsoft.com/en-us/azure/dns/dns-overview)
+- **YouTube**: [Azure Load Balancer Tutorial](https://youtu.be/T7XU6Lz8lJw)
+- **YouTube**: [Azure Traffic Manager Tutorial](https://youtu.be/aPNa7Axulhg)

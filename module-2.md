@@ -345,6 +345,101 @@ Azure DNS is a **high-availability, ultra-fast DNS hosting service** for domain 
 
 ---
 
+## 🗄️ Azure Storage Services
+
+### 📚 Data Types
+- **Structured**: Tabular data with strict schema and relationships (relational databases).
+- **Semi-structured**: Key–value or document-style data without a rigid schema (JSON).
+- **Unstructured**: Files of any type (images, videos, binaries, logs, backups).
+
+### 🏷️ Storage Account
+A **storage account** provides a unique namespace reachable over **HTTP/HTTPS** and is the **billing and security boundary** for Azure Storage services.
+
+- **Services hosted**: **Blob**, **File**, **Queue**, **Table**.
+- **Scale & durability**: Petabyte-scale, up to 11–16 “nines” durability (depending on redundancy).
+- **Security & access**:
+  - Encryption at rest by default.
+  - **RBAC with Microsoft Entra ID** for authorization.
+  - **Private Endpoints**, **service endpoints**, and **firewall rules** for network isolation.
+- **Management & cost control**:
+  - **Lifecycle Management** policies (auto-tier, archive, delete).
+  - **Soft delete**, **blob versioning**, **immutability** (time-based / legal hold).
+  - **Standard** (HDD/standard performance) vs **Premium** (SSD/low-latency) SKUs.
+
+---
+
+### 🧱 Blob Storage
+**BLOB = Binary Large Object**. General-purpose file/object storage for backups, media, data lakes, and static websites.
+
+- **Tiers**:
+  - **Hot**: frequently accessed data;
+  - **Cool**: infrequently accessed data;
+  - **Archive**: rarely accessed data.
+- **Features**: Static website hosting, multipart upload, lifecycle policies, soft delete, versioning, immutability.
+
+**Use cases**: Backups, archival, big data lakes, content serving, log ingestion.
+
+---
+
+### 📬 Queue Storage
+Lightweight **asynchronous messaging** between components.
+
+- **Messages** stored in FIFO-style queues.
+- **Decouple** producers/consumers.
+
+**Use cases**: Background jobs, task buffers, resilient work pipelines.
+
+---
+
+### 📒 Table Storage
+Storage for **semi-structured** data (**NoSQL**).
+
+- **Schema-less**; entities addressed by **PartitionKey** + **RowKey**.
+- **Fast and cost-effective** for large, sparse datasets.
+
+**Use cases**: Metadata, catalogs, logs, simple user profiles.
+
+---
+
+### 📁 Azure Files
+**Fully managed file shares** in the cloud with **SMB**.
+
+- Designed to extend on-premise file shares or implement **lift-and-shift** scenarios.
+- **Azure File Sync**: Cache Azure Files on Windows Server for local performance & centralized cloud storage.
+
+**Use cases**: User profiles, app shares, legacy apps expecting SMB/NFS.
+
+---
+
+### 💽 Disk Storage
+Managed disks for Azure VMs and other services.
+
+- Different **types** (SSD, HDD), sizes, performance tiers.
+- Disk can be unmanaged or managed.
+
+**Use cases**: VM OS/data disks, databases, high-IO workloads.
+
+---
+
+### 🚚 Data Movement
+- **AzCopy** / **Storage Explorer** for uploads, management.
+- **Azure Data Box** / **Import/Export** for large offline migrations.
+- **Data Factory** / **Synapse** for pipelines and analytics integration.
+
+---
+
+### 🧠 Summary Table
+
+| Service           | Data Type           | Highlights                                | Typical Use                          |
+|-------------------|---------------------|-------------------------------------------|--------------------------------------|
+| **Blob Storage**  | Unstructured        | Hot/Cool/Archive tiers                    | Backups, data lakes, media, logs     |
+| **Queue Storage** | Messages            | Simple async messaging, decoupling        | Background jobs, task queues         |
+| **Table Storage** | Semi-structured     | NoSQL key–value, schema-less              | Metadata, catalogs, logs             |
+| **Azure Files**   | Un/structured files | SMB/NFS shares, File Sync, snapshots      | Lift-and-shift shares, user profiles |
+| **Disk Storage**  | Block (page blobs)  | Managed disks, multiple performance tiers | VM OS/data disks, databases          |
+
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**
@@ -391,3 +486,16 @@ Azure DNS is a **high-availability, ultra-fast DNS hosting service** for domain 
 - **Microsoft Learn**: [Azure DNS Overview](https://learn.microsoft.com/en-us/azure/dns/dns-overview)
 - **YouTube**: [Azure Load Balancer Tutorial](https://youtu.be/T7XU6Lz8lJw)
 - **YouTube**: [Azure Traffic Manager Tutorial](https://youtu.be/aPNa7Axulhg)
+
+### 🗄️ **Azure Storage Services**
+- **Microsoft Learn**: [Azure Storage Overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [All Storage Products](https://azure.microsoft.com/en-us/products/category/storage/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure Files](https://azure.microsoft.com/en-us/products/storage/files/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Disk Storage](https://azure.microsoft.com/en-us/products/storage/disks/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Table Storage](https://azure.microsoft.com/en-us/products/storage/tables/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Queue Storage](https://azure.microsoft.com/en-us/products/storage/queues/?WT.mc_id=AZ-MVP-5003556)
+- **YouTube**: [Azure Storage Overview](https://www.youtube.com/watch?v=UzTtastcBsk)
+- **YouTube**: [Azure Queue Storage Tutorial](https://www.youtube.com/watch?v=JQ6KhjU5Zsg)
+- **YouTube**: [Azure Table Storage Tutorial](https://www.youtube.com/watch?v=HSL1poL1VR0)
+- **YouTube**: [Azure Files Tutorial](https://www.youtube.com/watch?v=BCzeb0IAy2k)

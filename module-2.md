@@ -366,8 +366,6 @@ A **storage account** provides a unique namespace reachable over **HTTP/HTTPS** 
   - **Soft delete**, **blob versioning**, **immutability** (time-based / legal hold).
   - **Standard** (HDD/standard performance) vs **Premium** (SSD/low-latency) SKUs.
 
----
-
 ### 🧱 Blob Storage
 **BLOB = Binary Large Object**. General-purpose file/object storage for backups, media, data lakes, and static websites.
 
@@ -379,8 +377,6 @@ A **storage account** provides a unique namespace reachable over **HTTP/HTTPS** 
 
 **Use cases**: Backups, archival, big data lakes, content serving, log ingestion.
 
----
-
 ### 📬 Queue Storage
 Lightweight **asynchronous messaging** between components.
 
@@ -388,8 +384,6 @@ Lightweight **asynchronous messaging** between components.
 - **Decouple** producers/consumers.
 
 **Use cases**: Background jobs, task buffers, resilient work pipelines.
-
----
 
 ### 📒 Table Storage
 Storage for **semi-structured** data (**NoSQL**).
@@ -399,8 +393,6 @@ Storage for **semi-structured** data (**NoSQL**).
 
 **Use cases**: Metadata, catalogs, logs, simple user profiles.
 
----
-
 ### 📁 Azure Files
 **Fully managed file shares** in the cloud with **SMB**.
 
@@ -409,8 +401,6 @@ Storage for **semi-structured** data (**NoSQL**).
 
 **Use cases**: User profiles, app shares, legacy apps expecting SMB/NFS.
 
----
-
 ### 💽 Disk Storage
 Managed disks for Azure VMs and other services.
 
@@ -418,8 +408,6 @@ Managed disks for Azure VMs and other services.
 - Disk can be unmanaged or managed.
 
 **Use cases**: VM OS/data disks, databases, high-IO workloads.
-
----
 
 ### 🚚 Data Movement
 - **AzCopy** / **Storage Explorer** for uploads, management.

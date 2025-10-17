@@ -348,9 +348,17 @@ Azure DNS is a **high-availability, ultra-fast DNS hosting service** for domain 
 ## 🗄️ Azure Storage Services
 
 ### 📚 Data Types
-- **Structured**: Tabular data with strict schema and relationships (relational databases).
-- **Semi-structured**: Key–value or document-style data without a rigid schema (JSON).
-- **Unstructured**: Files of any type (images, videos, binaries, logs, backups).
+- **Structured**  
+  Tabular data with a **strict, predefined schema** and relationships.  
+  *Examples*: Records in **relational databases** (SQL).  
+
+- **Semi-structured**  
+  Data with a **flexible (schema-on-read)** format. Fields may vary between records, but each item has a unique identifier.  
+  *Examples*: **JSON**, **CSV**, **XML**, logs.  
+
+- **Unstructured**  
+  Files that **don’t fit a tabular model**.  
+  *Examples*: Images, videos, audio, PDFs, binaries, large backups.
 
 ### 🏷️ Storage Account
 A **storage account** provides a unique namespace reachable over **HTTP/HTTPS** and is the **billing and security boundary** for Azure Storage services.
@@ -428,6 +436,58 @@ Managed disks for Azure VMs and other services.
 
 ---
 
+## 🗄️ Database Services
+
+### 🌍 Cosmos DB
+
+- **Type**: Fully managed, **globally distributed NoSQL** database for semi-structured data.
+- **Global distribution**: Multi-region **replication** with optional **multi-master writes**; read/write from the nearest region.
+- Supports **multiple APIs**:
+ - **SQL**,
+ - **MongoDB**,
+ - **Cassandra**,
+ - **Gremlin** (Graph),
+ - **Table Storage** (Key-value).
+- **Performance model**: **RU/s (Request Units)** with **Provisioned**, **Autoscale**, or **Serverless** options.
+- **Data model & scale**: Logical **partitions** by **partition key**; automatic **global indexing**.
+- **Resiliency & SLA**: 99.999% for multi-region (availability), latency and consistency SLAs.
+
+- **Best for**: **Low-latency (<10 ms)**, **planet-scale**, **JSON** workloads (IoT, telemetry, user profiles, catalogs, real-time apps).
+
+### 🧮 Azure SQL Database
+
+- **Type**: Fully managed (PaaS) **relational** database based on SQL Server engine.
+- **Deployment options**: **Single database**, **Elastic pool** (share compute), **Hyperscale** (very large DBs).
+- **Tiers & purchasing**:
+  - **Service tiers**: **General Purpose**, **Business Critical**, **Hyperscale**.
+  - **Compute models**: **vCore** (recommended; choose CPU/Memory; **serverless** or **provisioned**), or **DTU** (legacy).
+  - **Serverless**: Auto-pause/auto-resume to save cost on intermittent workloads.
+- **Business continuity**: Automated **backups**, **Point-in-Time Restore**, **Zone redundancy**, **Active Geo-Replication** (up to 4 readable secondaries).
+- **Security**: **TDE** at rest, **Always Encrypted**, **Auditing**, **Azure AD (Entra ID)** auth, **Private Link**.
+
+- **Best for**: Transactional apps needing **SQL**, **strong consistency**, and minimal ops.    
+
+### 🧩 Azure SQL Product Family
+- **Azure SQL Database** – (PaaS) Cloud-native SQL Server database for modern apps needing managed SQL.
+- **Azure SQL Managed Instance** – (PaaS)  **Near full SQL Server compatibility**; ideal for **lift-and-shift** from on-prem without managing OS.
+- **SQL Server on Azure VM** – (IaaS) Full SQL Server on Windows/Linux VM for **maximum control** (you manage OS/patching/HA/backup).
+- **Azure Database for MySQL** – (PaaS) Managed **MySQL** (Flexible Server); Automated patching, backups, **zone-redundant HA**, scaling.
+- **Azure Database for PostgreSQL** – (PaaS) Managed **PostgreSQL** (Flexible Server / Hyperscale-Citus); Vertical and horizontal scale-out for sharded workloads.
+- **Azure Synapse Analytics** (formerly SQL Data Warehouse) – (PaaS) **MPP** analytics for **data warehousing**; Integrates with Spark, pipelines, Power BI.
+
+---
+
+### 🔍 Key Concepts to Remember about Database Services
+
+- **Cosmos DB** = NoSQL, globally distributed, <10ms latency, supports multiple APIs.
+- **Azure SQL Database** = Fully managed relational database.
+- **Azure SQL Managed Instance** = Near-complete SQL Server compatibility with PaaS benefits.
+- **SQL on VM** = Traditional SQL Server with full control (IaaS).
+- **Azure Database for MySQL/PostgreSQL** = Open-source relational DB engines with managed hosting.
+- **Synapse Analytics** = Data warehouse solution for large-scale analytics and reporting.
+
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**
@@ -487,3 +547,11 @@ Managed disks for Azure VMs and other services.
 - **YouTube**: [Azure Queue Storage Tutorial](https://www.youtube.com/watch?v=JQ6KhjU5Zsg)
 - **YouTube**: [Azure Table Storage Tutorial](https://www.youtube.com/watch?v=HSL1poL1VR0)
 - **YouTube**: [Azure Files Tutorial](https://www.youtube.com/watch?v=BCzeb0IAy2k)
+
+### 🗄️ **Database Services**
+- **Azure Products**: [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure Cosmos DB – Introduction](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure SQL (SQL Database, Managed Instance, SQL on VMs)](https://azure.microsoft.com/en-us/products/azure-sql/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure SQL – Documentation Hub](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql&WT.mc_id=AZ-MVP-5003556)
+- **YouTube**: [Azure Cosmos DB Tutorial](https://www.youtube.com/watch?v=BgvEOkcR0Wk)
+- **YouTube**: [Azure SQL Overview](https://www.youtube.com/watch?v=R_Fi59j6BMo)

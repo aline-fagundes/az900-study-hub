@@ -488,6 +488,28 @@ Managed disks for Azure VMs and other services.
 
 ---
 
+### 🛒 Azure Marketplace
+
+**Azure Marketplace** is Microsoft’s catalog of **certified** solutions that run on or integrate with Azure.
+
+- **What you get**
+  - **IaaS**, **PaaS**, and **SaaS**.
+  - **VM images** (preconfigured OS and software)
+  - **SaaS apps** (subscription-based services hosted by the publisher)
+  - **Managed apps** (publisher deploys/operates resources in your subscription)
+  - **Containers, templates, connectors**, and **consulting services**
+
+- **Who publishes**
+  - **First-party (Microsoft)** and **third-party vendors**.  
+  - Offers are **validated** to meet Azure policies and compliance standards.
+
+- **Pricing & billing**
+  - You may pay for **Azure resources** **and** the **publisher’s software or service fees** (varies by offer).
+  - Common models: **pay-as-you-go**, bring your own license, **free trials**, and **private offers** negotiated with the publisher.
+  - Charges appear on your **Azure bill** for consolidated management.
+  - 
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**

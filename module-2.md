@@ -550,6 +550,68 @@ A secure platform for **microcontroller (MCU)-class devices**.
   
 ---
 
+### 📊 Azure Big Data & Analytics
+
+**Big Data** refers to information that is **too large, fast, or diverse** to be processed effectively with traditional systems, requiring scalable storage, distributed processing, and specialized analytics services.
+
+---
+
+#### 3 V’s of Big Data
+- **Volume** – Amount of data (GB → TB → PB+)
+- **Velocity** – Speed of generation/processing  
+  *Batch · Periodic · Near real-time · Real time*
+- **Variety** – Types and structure of data  
+  *Tables/DBs · Logs · Images/Audio/Video · Social media · JSON/CSV*
+
+---
+
+#### 🧠 Azure Synapse Analytics (PaaS)
+An **end-to-end analytics platform** that unifies **data ingestion, preparation, warehousing, and big data**.
+
+- **Synapse Studio**: Unified UI (author, monitor, analyze).
+- **Compute options**:
+  - **Dedicated SQL pools** (provisioned MPP data warehouse; predictable performance/cost).
+  - **Serverless SQL** (ad-hoc queries over data in Data Lake; pay per TB processed).
+  - **Apache Spark** (data engineering, ML, batch/stream processing).
+- **Orchestration**: **Synapse Pipelines** (Data Factory ETL/ELT inside Synapse).
+- **Storage**: Tightly integrates with **Azure Data Lake Storage Gen2** (HNS).
+- **Integration**: Power BI, Azure ML, Event Hubs/IoT Hub, Functions.
+
+**Use cases**: Enterprise data warehouse, lakehouse analytics, ELT at scale, ad-hoc SQL over files.
+
+---
+
+#### ☁️ Azure HDInsight (PaaS)
+Fully managed **open-source big data** clusters.
+
+- Supports **Hadoop**, **Spark**, **Kafka**, **Hive**, **HBase**, **Storm**.
+- You choose the tech; Azure manages the cluster lifecycle.
+- Integrates with Azure Storage / Data Lake.
+
+**Use cases**: OSS-centric analytics, Kafka streaming, Hadoop/Spark migrations.
+
+---
+
+#### 🔥 Azure Databricks (PaaS)
+Fast, collaborative **Apache Spark** based analytics platform optimized for Azure.
+
+- **Notebooks** (Python/SQL/Scala/R), **Delta Lake**, **MLflow** integration.
+- Auto-scaling clusters, job scheduling, Unity Catalog (governance).
+- Deep integration with **ADLS Gen2**, **Event Hubs**, **Synapse**, **Power BI**.
+
+**Use cases**: Data engineering, lakehouse ETL, advanced analytics & ML at scale.
+
+---
+
+#### 🧩 Complementary Services (Know at a high level)
+- **Azure Data Lake Storage Gen2**: Low-cost, scalable storage with **hierarchical namespace** for analytics.
+- **Azure Data Factory** / **Synapse Pipelines**: **Code-free** and code-first **ETL/ELT** across on-prem and cloud sources.
+- **Azure Stream Analytics**: **Serverless** SQL-like engine for **real-time** analytics over streams (Event Hubs/IoT Hub).
+- **Azure Event Hubs**: High-throughput **ingestion** for telemetry and streaming data.
+- **Power BI**: Self-service **data visualization** and reporting (often paired with Synapse/Databricks).
+
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**
@@ -625,4 +687,14 @@ A secure platform for **microcontroller (MCU)-class devices**.
 - **Microsoft Learn**: [IoT Central Documentation](https://learn.microsoft.com/en-us/azure/iot-central/?WT.mc_id=AZ-MVP-5003556)
 - **Azure Products**: [Azure Sphere](https://azure.microsoft.com/en-us/products/azure-sphere/?WT.mc_id=AZ-MVP-5003556)
 - **Microsoft Learn**: [What is Azure Sphere?](https://learn.microsoft.com/en-us/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&WT.mc_id=AZ-MVP-5003556)
+
+### 📊 **Azure Big Data & Analytics**
+- **Azure Products**: [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [What is Azure Synapse (SQL Data Warehouse)?](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure HDInsight](https://azure.microsoft.com/en-us/products/hdinsight/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [HDInsight Documentation](https://learn.microsoft.com/en-us/azure/hdinsight/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure Databricks](https://azure.microsoft.com/en-us/products/databricks/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure Databricks Introduction](https://learn.microsoft.com/en-us/azure/databricks/introduction/?WT.mc_id=AZ-MVP-5003556)
+- **Wikipedia**: [Big Data](https://en.wikipedia.org/wiki/Big_data)
+
 

@@ -507,7 +507,47 @@ Managed disks for Azure VMs and other services.
   - You may pay for **Azure resources** **and** the **publisher’s software or service fees** (varies by offer).
   - Common models: **pay-as-you-go**, bring your own license, **free trials**, and **private offers** negotiated with the publisher.
   - Charges appear on your **Azure bill** for consolidated management.
-  - 
+
+---
+
+ ### 🌐 Azure IoT (Internet of Things)
+
+**Internet of Things (IoT)** is a network of internet-connected devices (sensors, controllers, appliances) that **send telemetry**, **receive commands**, and can be **remotely managed**.
+
+---
+
+#### 🛰️ Azure IoT Hub (PaaS)
+A **managed message hub** for **bi-directional** device–cloud communication.
+
+- **Secure, scalable, reliable** device connectivity and management
+- **Protocols**: HTTPS, AMQP, MQTT
+- **SDKs**: C, C#, Java, Python, Node.js
+- Integrates with **Event Hubs**, **Stream Analytics**, **Functions**, **Storage**, **Synapse**, etc.
+
+**Use cases**: Ingest telemetry at scale, command & control, device lifecycle management.
+
+---
+
+#### 🧭 Azure IoT Central (SaaS)
+A **ready-to-use IoT application platform** built on top of IoT Hub and 30+ Azure services.
+
+- **No deep cloud expertise** required; **industry templates** for fast start
+- Built-in **device modeling**, dashboards, rules/alerts, jobs, and user roles
+- **Secure, scalable** device onboarding, management, and monitoring
+
+**Use cases**: Rapid solution rollout with minimal engineering; business-ready IoT applications.
+
+---
+
+#### 🔐 Azure Sphere (End-to-End Device Security)
+A secure platform for **microcontroller (MCU)-class devices**.
+
+- **Azure Sphere–certified chips**
+- **Azure Sphere OS** (Linux-based)
+- **Azure Sphere Security Service** for trusted device-to-cloud communication, updates, and certificate-based auth
+
+**Use cases**: Highly secured embedded devices.
+  
 ---
 
 ## 📚 Study Resources
@@ -577,3 +617,12 @@ Managed disks for Azure VMs and other services.
 - **Microsoft Learn**: [Azure SQL – Documentation Hub](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql&WT.mc_id=AZ-MVP-5003556)
 - **YouTube**: [Azure Cosmos DB Tutorial](https://www.youtube.com/watch?v=BgvEOkcR0Wk)
 - **YouTube**: [Azure SQL Overview](https://www.youtube.com/watch?v=R_Fi59j6BMo)
+
+### 📡 **Azure IoT**
+- **Azure Products**: [IoT Hub](https://azure.microsoft.com/en-us/products/iot-hub/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [IoT Hub Documentation](https://learn.microsoft.com/en-us/azure/iot-hub/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [IoT Central](https://azure.microsoft.com/en-us/products/iot-central/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [IoT Central Documentation](https://learn.microsoft.com/en-us/azure/iot-central/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure Sphere](https://azure.microsoft.com/en-us/products/azure-sphere/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [What is Azure Sphere?](https://learn.microsoft.com/en-us/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&WT.mc_id=AZ-MVP-5003556)
+

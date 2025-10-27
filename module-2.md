@@ -612,6 +612,68 @@ Fast, collaborative **Apache Spark** based analytics platform optimized for Azur
 
 ---
 
+### 🤖 Artificial Intelligence & Machine Learning
+
+**Artificial Intelligence (AI)** is the simulation of human intelligence and capabilities by software.  
+**Machine Learning (ML)** is a subfield of AI where models learn patterns from data to make predictions or decisions.
+
+---
+
+#### 🧪 Azure Machine Learning (PaaS)
+A **cloud platform** for building, training, deploying, and managing ML models at scale.
+
+- **Core concepts**
+  - **Workspaces**: Top-level resource for all ML assets.
+  - **Azure ML Studio**: Web portal for end-to-end authoring and MLOps.
+  - **SDK & CLI**: Python/R SDKs, CLI for automation and CI/CD.
+- **Features**
+  - **Notebooks**: Author in Python/R with managed compute.
+  - **Automated ML (AutoML)**: Tries multiple algorithms/parameters and selects the best model.
+  - **Designer**: Drag-and-drop no-code/low-code pipelines.
+  - **Data & Compute**: Datastores, data labeling, compute clusters/instances, job scheduling.
+  - **Pipelines**: Reproducible training/ETL; track runs and metrics.
+  - **Model registry & endpoints**: Register, version, and deploy models to **managed online/batch endpoints**.
+
+**Use cases**: Forecasting, classification, recommendation, computer vision, NLP.
+
+---
+
+#### 🧠 Azure AI Services (PaaS)
+Prebuilt AI APIs to add intelligence without training your own models.
+
+- **Vision**: Image analysis, OCR, face detection, document intelligence.
+- **Language**: Text analytics, key phrases, sentiment, language detection, Q&A.
+- **Speech**: Speech-to-text, text-to-speech, translation, speaker recognition.
+- **Decision**: Anomaly detection, personalization (some services vary by region).
+- **Responsible AI**: Content filters, abuse monitoring, and policy controls.
+
+**Model consumption**: Call via REST/SDK; **consumption-based** pricing (per call/second).
+
+---
+
+#### 🔎 Azure AI Search
+AI-powered search over your **structured and unstructured** content.
+
+- **Indexers** to pull data from Storage/Databases.
+- **Skillsets** to enrich content (OCR, language detection, entity extraction).
+- **Vector & hybrid search** for semantic relevance and RAG scenarios.
+- Expose **search indexes** via REST/SDK to apps and websites.
+
+---
+
+#### 💬 Azure Bot Service
+Build and deploy conversational bots.
+
+- Works with **Bot Framework** SDK/Composer.
+- Connect to channels (Teams, Web Chat, etc).
+- Integrate with **Azure AI Services** for NLU, speech, and Q&A.
+
+---
+
+
+
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**
@@ -697,4 +759,7 @@ Fast, collaborative **Apache Spark** based analytics platform optimized for Azur
 - **Microsoft Learn**: [Azure Databricks Introduction](https://learn.microsoft.com/en-us/azure/databricks/introduction/?WT.mc_id=AZ-MVP-5003556)
 - **Wikipedia**: [Big Data](https://en.wikipedia.org/wiki/Big_data)
 
-
+### 🤖 **Artificial Intelligence & Machine Learning**
+- **Azure Products**: [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [What is Azure Machine Learning?](https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2&WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn (Module)**: [Get started with AI fundamentals](https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/1-introduction?WT.mc_id=AZ-MVP-5003556)

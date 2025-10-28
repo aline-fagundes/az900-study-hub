@@ -23,7 +23,7 @@ A **region** is a geographical area on the planet that contains **one or more da
 ### 🧭 Availability Zone
 **Availability Zones** are physically separate locations **within a single Azure region**, each with its own **independent power, cooling, and networking**.
 
-- A zone is composed by one or more data centers.
+- A zone is composed of one or more data centers.
 - Designed for **high availability** and **fault isolation**.
 - Only available in zone-enabled regions (not all regions support them).
 - A region with Availability Zones has at least **three separate zones**.
@@ -104,15 +104,14 @@ Logical containers that organize related resources.
 ### 🧠 Azure Resource Manager (ARM)
 The **management layer** that enables to deploy, manage, and organize Azure resources consistently.
 
-- Supports management via **Azure Portal**, **CLI**, **PowerShell**, and **ARM templates**.
-- Enables **infrastructure as code**, tagging, policy enforcement, and automation.
+- Manage via **Azure Portal**, **CLI**, **PowerShell**, **ARM/Bicep templates**.
+- Enables **infrastructure as code**, **tagging**, **policy enforcement**, **locks**, and automation.
 
 ### 📜 Subscriptions
-A logical container to logically organize resource groups by billing, access management, and provisioning.
+A logical container for **billing**, **resource quotas**, **access boundaries**, and **service enablement**.
 
 - Provide **authenticated access** to Azure resources.
-- Enable **separation of billing**, **resource quotas**, and **service access**.
-- An account can have **multiple subscriptions**, but only **one is required**.
+- One account can have **multiple subscriptions**, but only **one is required**.
 - Resource groups inherit settings from subscriptions.
 
 ### 🏢 Management Groups
@@ -263,7 +262,7 @@ A **Virtual Network (VNet)** is a fundamental building block for private network
 - **Subnets**: Segment networks into smaller address spaces.
 - **NSGs / ASGs**: Apply security rules to control inbound/outbound traffic.
 - **Private/Public Endpoints**: Enable internal or internet-facing communication.
-- **Communication**: Between Azure VMs, services, and on-premises resources.
+- **Hybrid connectivity**: Communicate with on-premises networks via **VPN Gateway** or **ExpressRoute**.
 
 > 🔸 Use VNets to build hybrid solutions or secure internal app communication.
 
@@ -284,12 +283,12 @@ A **Layer 4 (TCP/UDP) load balancer** that distributes traffic across resources 
 #### 🔐 VPN Gateway
 A **VPN Gateway** provides encrypted tunnels over the public internet to connect on-premises and Azure networks securely.
 
-- Supports **site-to-site** and **point-to-site** VPN configurations.
+- **Site-to-site**, **point-to-site**, and **VNet-to-VNet** configurations.
 - Ideal for secure cross-premises communication over untrusted networks.
 - Can be deployed as **zone-redundant** for high availability.
 - Enables cross-regional communication of VNets.
 
-> 🔸 Choose VPN Gateway when budget-sensitive or using existing internet infrastructure.
+> 🔸 Choose VPN Gateway when leveraging existing internet connectivity or for cost-sensitive hybrid links.
 
 #### 🧭 Application Gateway
 A **Layer 7 (HTTP/HTTPS) load balancer** designed for web apps.
@@ -329,19 +328,34 @@ Azure DNS is a **high-availability, ultra-fast DNS hosting service** for domain 
 
 > 🔸 Integrate Azure DNS with your domain registrar for scalable and reliable DNS management.
 
+#### 🌍 Azure Front Door
+A **global, anycast Layer 7** entry service that provides **smart routing**, **WAF**, **TLS offload**, and **edge caching**.
+
+- Improves global performance and availability for web apps/APIs.
+- Works well with regional backends (App Service, AKS, VMs) and integrates with CDN/WAF.
+
+#### 🧭 Azure Traffic Manager
+A **DNS load-balancing** service for distributing traffic across **multiple endpoints/regions**.
+
+- Routing methods: **Priority**, **Weighted**, **Performance**, **Geographic**, **Multi-value**, **Subnet**.
+- Great for geo-distribution, disaster recovery/failover, and blue/green at DNS layer.
+
 ---
 
 ### 🧠 Summary Table
 
-| Service                 | Layer       | Purpose                                         |
-|-------------------------|-------------|-------------------------------------------------|
-| **Virtual Network**     | Network     | Internal networking, segmentation, hybrid setup |
-| **Load Balancer**       | Layer 4     | Distributes TCP/UDP traffic across VMs/services |
-| **VPN Gateway**         | Network     | Secure on-prem to Azure communication           |
-| **Application Gateway** | Layer 7     | HTTP/HTTPS load balancing + WAF                 |
-| **CDN**                 | Edge        | Low-latency delivery of static content          |
-| **ExpressRoute**        | Private WAN | Private, high-performance connection to Azure   |
-| **Azure DNS**           | DNS         | Domain resolution via Microsoft infrastructure  |
+| Service                 | Layer       | Purpose                                                 |
+|-------------------------|-------------|---------------------------------------------------------|
+| **Virtual Network**     | Network     | Internal networking, segmentation, hybrid setup         |
+| **Load Balancer**       | Layer 4     | Distributes TCP/UDP traffic across VMs/services         |
+| **VPN Gateway**         | Network     | Secure on-prem to Azure communication                   |
+| **Application Gateway** | Layer 7     | HTTP/HTTPS load balancing + WAF                         |
+| **CDN**                 | Edge        | Low-latency delivery of static content                  |
+| **ExpressRoute**        | Private WAN | Private, high-performance connection to Azure           |
+| **Azure DNS**           | DNS         | Domain resolution via Microsoft infrastructure          |
+| **Front Door**          | Layer 7     | Global entry point with smart routing, WAF, TLS offload |
+| **Traffic Manager**     | DNS         | DNS-based global traffic distribution/failover          |
+
 
 ---
 
@@ -383,7 +397,7 @@ A **storage account** provides a unique namespace reachable over **HTTP/HTTPS** 
   - **Archive**: rarely accessed data.
 - **Features**: Static website hosting, multipart upload, lifecycle policies, soft delete, versioning, immutability.
 
-**Use cases**: Backups, archival, big data lakes, content serving, log ingestion.
+> **Use cases**: Backups, archival, big data lakes, content serving, log ingestion.
 
 ### 📬 Queue Storage
 Lightweight **asynchronous messaging** between components.
@@ -391,7 +405,7 @@ Lightweight **asynchronous messaging** between components.
 - **Messages** stored in FIFO-style queues.
 - **Decouple** producers/consumers.
 
-**Use cases**: Background jobs, task buffers, resilient work pipelines.
+> **Use cases**: Background jobs, task buffers, resilient work pipelines.
 
 ### 📒 Table Storage
 Storage for **semi-structured** data (**NoSQL**).
@@ -399,23 +413,24 @@ Storage for **semi-structured** data (**NoSQL**).
 - **Schema-less**; entities addressed by **PartitionKey** + **RowKey**.
 - **Fast and cost-effective** for large, sparse datasets.
 
-**Use cases**: Metadata, catalogs, logs, simple user profiles.
+> **Use cases**: Metadata, catalogs, logs, simple user profiles.
 
 ### 📁 Azure Files
 **Fully managed file shares** in the cloud with **SMB**.
 
-- Designed to extend on-premise file shares or implement **lift-and-shift** scenarios.
+- Designed to extend on-premises file shares or implement **lift-and-shift** scenarios.
 - **Azure File Sync**: Cache Azure Files on Windows Server for local performance & centralized cloud storage.
 
-**Use cases**: User profiles, app shares, legacy apps expecting SMB/NFS.
+> **Use cases**: User profiles, app shares, legacy apps expecting SMB/NFS.
 
 ### 💽 Disk Storage
 Managed disks for Azure VMs and other services.
 
 - Different **types** (SSD, HDD), sizes, performance tiers.
-- Disk can be unmanaged or managed.
+- Features: **Snapshots**, **images**, encryption; choose type by required IOPS/latency.
+- *Unmanaged disks* are legacy and generally discouraged.
 
-**Use cases**: VM OS/data disks, databases, high-IO workloads.
+> **Use cases**: VM OS/data disks, databases, high-IO workloads.
 
 ### 🚚 Data Movement
 - **AzCopy** / **Storage Explorer** for uploads, management.
@@ -452,7 +467,7 @@ Managed disks for Azure VMs and other services.
 - **Data model & scale**: Logical **partitions** by **partition key**; automatic **global indexing**.
 - **Resiliency & SLA**: 99.999% for multi-region (availability), latency and consistency SLAs.
 
-- **Best for**: **Low-latency (<10 ms)**, **planet-scale**, **JSON** workloads (IoT, telemetry, user profiles, catalogs, real-time apps).
+>  **Best for**: **Low-latency (<10 ms)**, **planet-scale**, **JSON** workloads (IoT, telemetry, user profiles, catalogs, real-time apps).
 
 ### 🧮 Azure SQL Database
 
@@ -465,7 +480,7 @@ Managed disks for Azure VMs and other services.
 - **Business continuity**: Automated **backups**, **Point-in-Time Restore**, **Zone redundancy**, **Active Geo-Replication** (up to 4 readable secondaries).
 - **Security**: **TDE** at rest, **Always Encrypted**, **Auditing**, **Azure AD (Entra ID)** auth, **Private Link**.
 
-- **Best for**: Transactional apps needing **SQL**, **strong consistency**, and minimal ops.    
+>  **Best for**: Transactional apps needing **SQL**, **strong consistency**, and minimal ops.    
 
 ### 🧩 Azure SQL Product Family
 - **Azure SQL Database** – (PaaS) Cloud-native SQL Server database for modern apps needing managed SQL.
@@ -510,11 +525,9 @@ Managed disks for Azure VMs and other services.
 
 ---
 
- ### 🌐 Azure IoT (Internet of Things)
+### 🌐 Azure IoT (Internet of Things)
 
 **Internet of Things (IoT)** is a network of internet-connected devices (sensors, controllers, appliances) that **send telemetry**, **receive commands**, and can be **remotely managed**.
-
----
 
 #### 🛰️ Azure IoT Hub (PaaS)
 A **managed message hub** for **bi-directional** device–cloud communication.
@@ -524,9 +537,7 @@ A **managed message hub** for **bi-directional** device–cloud communication.
 - **SDKs**: C, C#, Java, Python, Node.js
 - Integrates with **Event Hubs**, **Stream Analytics**, **Functions**, **Storage**, **Synapse**, etc.
 
-**Use cases**: Ingest telemetry at scale, command & control, device lifecycle management.
-
----
+> **Use cases**: Ingest telemetry at scale, command & control, device lifecycle management.
 
 #### 🧭 Azure IoT Central (SaaS)
 A **ready-to-use IoT application platform** built on top of IoT Hub and 30+ Azure services.
@@ -535,18 +546,16 @@ A **ready-to-use IoT application platform** built on top of IoT Hub and 30+ Azur
 - Built-in **device modeling**, dashboards, rules/alerts, jobs, and user roles
 - **Secure, scalable** device onboarding, management, and monitoring
 
-**Use cases**: Rapid solution rollout with minimal engineering; business-ready IoT applications.
+> **Use cases**: Rapid solution rollout with minimal engineering; business-ready IoT applications.
 
----
-
-#### 🔐 Azure Sphere (End-to-End Device Security)
+#### 🔐 Azure Sphere
 A secure platform for **microcontroller (MCU)-class devices**.
 
 - **Azure Sphere–certified chips**
 - **Azure Sphere OS** (Linux-based)
 - **Azure Sphere Security Service** for trusted device-to-cloud communication, updates, and certificate-based auth
 
-**Use cases**: Highly secured embedded devices.
+> **Use cases**: Highly secured embedded devices.
   
 ---
 
@@ -554,16 +563,12 @@ A secure platform for **microcontroller (MCU)-class devices**.
 
 **Big Data** refers to information that is **too large, fast, or diverse** to be processed effectively with traditional systems, requiring scalable storage, distributed processing, and specialized analytics services.
 
----
-
 #### 3 V’s of Big Data
 - **Volume** – Amount of data (GB → TB → PB+)
 - **Velocity** – Speed of generation/processing  
   *Batch · Periodic · Near real-time · Real time*
 - **Variety** – Types and structure of data  
   *Tables/DBs · Logs · Images/Audio/Video · Social media · JSON/CSV*
-
----
 
 #### 🧠 Azure Synapse Analytics (PaaS)
 An **end-to-end analytics platform** that unifies **data ingestion, preparation, warehousing, and big data**.
@@ -577,9 +582,7 @@ An **end-to-end analytics platform** that unifies **data ingestion, preparation,
 - **Storage**: Tightly integrates with **Azure Data Lake Storage Gen2** (HNS).
 - **Integration**: Power BI, Azure ML, Event Hubs/IoT Hub, Functions.
 
-**Use cases**: Enterprise data warehouse, lakehouse analytics, ELT at scale, ad-hoc SQL over files.
-
----
+> **Use cases**: Enterprise data warehouse, lakehouse analytics, ELT at scale, ad-hoc SQL over files.
 
 #### ☁️ Azure HDInsight (PaaS)
 Fully managed **open-source big data** clusters.
@@ -588,9 +591,7 @@ Fully managed **open-source big data** clusters.
 - You choose the tech; Azure manages the cluster lifecycle.
 - Integrates with Azure Storage / Data Lake.
 
-**Use cases**: OSS-centric analytics, Kafka streaming, Hadoop/Spark migrations.
-
----
+> **Use cases**: OSS-centric analytics, Kafka streaming, Hadoop/Spark migrations.
 
 #### 🔥 Azure Databricks (PaaS)
 Fast, collaborative **Apache Spark** based analytics platform optimized for Azure.
@@ -599,11 +600,9 @@ Fast, collaborative **Apache Spark** based analytics platform optimized for Azur
 - Auto-scaling clusters, job scheduling, Unity Catalog (governance).
 - Deep integration with **ADLS Gen2**, **Event Hubs**, **Synapse**, **Power BI**.
 
-**Use cases**: Data engineering, lakehouse ETL, advanced analytics & ML at scale.
+> **Use cases**: Data engineering, lakehouse ETL, advanced analytics & ML at scale.
 
----
-
-#### 🧩 Complementary Services (Know at a high level)
+#### 🧩 Complementary Services
 - **Azure Data Lake Storage Gen2**: Low-cost, scalable storage with **hierarchical namespace** for analytics.
 - **Azure Data Factory** / **Synapse Pipelines**: **Code-free** and code-first **ETL/ELT** across on-prem and cloud sources.
 - **Azure Stream Analytics**: **Serverless** SQL-like engine for **real-time** analytics over streams (Event Hubs/IoT Hub).
@@ -616,8 +615,6 @@ Fast, collaborative **Apache Spark** based analytics platform optimized for Azur
 
 **Artificial Intelligence (AI)** is the simulation of human intelligence and capabilities by software.  
 **Machine Learning (ML)** is a subfield of AI where models learn patterns from data to make predictions or decisions.
-
----
 
 #### 🧪 Azure Machine Learning (PaaS)
 A **cloud platform** for building, training, deploying, and managing ML models at scale.
@@ -634,9 +631,7 @@ A **cloud platform** for building, training, deploying, and managing ML models a
   - **Pipelines**: Reproducible training/ETL; track runs and metrics.
   - **Model registry & endpoints**: Register, version, and deploy models to **managed online/batch endpoints**.
 
-**Use cases**: Forecasting, classification, recommendation, computer vision, NLP.
-
----
+> **Use cases**: Forecasting, classification, recommendation, computer vision, NLP.
 
 #### 🧠 Azure AI Services (PaaS)
 Prebuilt AI APIs to add intelligence without training your own models.
@@ -649,8 +644,6 @@ Prebuilt AI APIs to add intelligence without training your own models.
 
 **Model consumption**: Call via REST/SDK; **consumption-based** pricing (per call/second).
 
----
-
 #### 🔎 Azure AI Search
 AI-powered search over your **structured and unstructured** content.
 
@@ -658,8 +651,6 @@ AI-powered search over your **structured and unstructured** content.
 - **Skillsets** to enrich content (OCR, language detection, entity extraction).
 - **Vector & hybrid search** for semantic relevance and RAG scenarios.
 - Expose **search indexes** via REST/SDK to apps and websites.
-
----
 
 #### 💬 Azure Bot Service
 Build and deploy conversational bots.
@@ -674,8 +665,6 @@ Build and deploy conversational bots.
 
 **Serverless** is a cloud execution model where you run code or workflows **without managing servers**. The platform **auto-scales**, handles **infrastructure**, and you pay for **actual usage** (events/executions), not idle capacity.
 
----
-
 #### 🧩 Azure Functions (FaaS)
 Event-driven code execution for **micro/nano-services**.
 
@@ -688,9 +677,7 @@ Event-driven code execution for **micro/nano-services**.
   - **Premium**: Pre-warmed instances, VNET integration, no cold start.
   - **Dedicated (App Service plan)**: Fixed capacity; useful when sharing with existing App Service.
 
-**Use cases**: APIs, webhooks, file processing, scheduled jobs, event processing, ETL steps.
-
----
+> **Use cases**: APIs, webhooks, file processing, scheduled jobs, event processing, ETL steps.
 
 #### 🔗 Azure Logic Apps
 No/low-code **orchestration** for apps, data, and business processes.
@@ -698,9 +685,7 @@ No/low-code **orchestration** for apps, data, and business processes.
 - **Connectors**: 200+ managed connectors (Office 365, Salesforce, SAP, Service Bus, SQL, Storage, etc.).
 - **Workflows**: Triggers → Actions, conditions, loops, parallel branches, exception handling.
 
-**Use cases**: System integration, approvals, data sync, RPA alternatives, enterprise workflows.
-
----
+> **Use cases**: System integration, approvals, data sync, RPA alternatives, enterprise workflows.
 
 #### 📮 Azure Event Grid
 **Publish–subscribe** eventing for near real-time apps.
@@ -710,9 +695,7 @@ No/low-code **orchestration** for apps, data, and business processes.
 - **Features**: At-least-once delivery, filtering/advanced routing, retry & dead-letter.
 - **Scale**: High throughput, low-latency event distribution.
 
-**Use cases**: Reactive architectures, resource lifecycle events, decoupled microservices.
-
----
+> **Use cases**: Reactive architectures, resource lifecycle events, decoupled microservices.
 
 #### 🧭 Related Messaging Services (Know the Role)
 - **Azure Service Bus**: Enterprise **messages/queues/topics** with ordering, sessions, transactions, dead-lettering (**commands** pattern).
@@ -724,8 +707,6 @@ No/low-code **orchestration** for apps, data, and business processes.
 ### 🚀 DevOps
 
 **DevOps** combines **Development (Dev)** and **Operations (Ops)** practices to deliver software **faster and more reliably**. Core ideas include **Continuous Integration (CI)**, **Continuous Delivery/Deployment (CD)**, collaboration, automation, and monitoring.
-
----
 
 #### 🧰 Azure DevOps Services (SaaS)
 A suite of services for planning, coding, building, testing, and releasing software.
@@ -740,8 +721,6 @@ A suite of services for planning, coding, building, testing, and releasing softw
 - **Extensions Marketplace** (1,000+ add-ons) and REST APIs.
 - Works with **ARM/Bicep/Terraform** for **Infrastructure as Code (IaC)**.
 - Can integrate with **GitHub** (source) and **GitHub Actions** (CI/CD).
-
----
 
 #### 🧪 Azure DevTest Labs (PaaS)
 Create cost-controlled **self-service dev/test environments**.

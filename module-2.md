@@ -509,10 +509,10 @@ Managed disks for Azure VMs and other services.
 
 - **What you get**
   - **IaaS**, **PaaS**, and **SaaS**.
-  - **VM images** (preconfigured OS and software)
-  - **SaaS apps** (subscription-based services hosted by the publisher)
-  - **Managed apps** (publisher deploys/operates resources in your subscription)
-  - **Containers, templates, connectors**, and **consulting services**
+  - **VM images** (preconfigured OS and software).
+  - **SaaS apps** (subscription-based services hosted by the publisher).
+  - **Managed apps** (publisher deploys/operates resources in your subscription).
+  - **Containers, templates, connectors**, and **consulting services**.
 
 - **Who publishes**
   - **First-party (Microsoft)** and **third-party vendors**.  
@@ -532,9 +532,9 @@ Managed disks for Azure VMs and other services.
 #### 🛰️ Azure IoT Hub (PaaS)
 A **managed message hub** for **bi-directional** device–cloud communication.
 
-- **Secure, scalable, reliable** device connectivity and management
-- **Protocols**: HTTPS, AMQP, MQTT
-- **SDKs**: C, C#, Java, Python, Node.js
+- **Secure, scalable, reliable** device connectivity and management.
+- **Protocols**: HTTPS, AMQP, MQTT.
+- **SDKs**: C, C#, Java, Python, Node.js.
 - Integrates with **Event Hubs**, **Stream Analytics**, **Functions**, **Storage**, **Synapse**, etc.
 
 > **Use cases**: Ingest telemetry at scale, command & control, device lifecycle management.
@@ -542,18 +542,18 @@ A **managed message hub** for **bi-directional** device–cloud communication.
 #### 🧭 Azure IoT Central (SaaS)
 A **ready-to-use IoT application platform** built on top of IoT Hub and 30+ Azure services.
 
-- **No deep cloud expertise** required; **industry templates** for fast start
-- Built-in **device modeling**, dashboards, rules/alerts, jobs, and user roles
-- **Secure, scalable** device onboarding, management, and monitoring
+- **No deep cloud expertise** required; **industry templates** for fast start.
+- Built-in **device modeling**, dashboards, rules/alerts, jobs, and user roles.
+- **Secure, scalable** device onboarding, management, and monitoring.
 
 > **Use cases**: Rapid solution rollout with minimal engineering; business-ready IoT applications.
 
 #### 🔐 Azure Sphere
 A secure platform for **microcontroller (MCU)-class devices**.
 
-- **Azure Sphere–certified chips**
-- **Azure Sphere OS** (Linux-based)
-- **Azure Sphere Security Service** for trusted device-to-cloud communication, updates, and certificate-based auth
+- **Azure Sphere–certified chips**.
+- **Azure Sphere OS** (Linux-based).
+- **Azure Sphere Security Service** for trusted device-to-cloud communication, updates, and certificate-based auth.
 
 > **Use cases**: Highly secured embedded devices.
   
@@ -565,7 +565,7 @@ A secure platform for **microcontroller (MCU)-class devices**.
 
 #### 3 V’s of Big Data
 - **Volume** – Amount of data (GB → TB → PB+)
-- **Velocity** – Speed of generation/processing  
+- **Velocity** – Speed of generation/processing 
   *Batch · Periodic · Near real-time · Real time*
 - **Variety** – Types and structure of data  
   *Tables/DBs · Logs · Images/Audio/Video · Social media · JSON/CSV*
@@ -682,7 +682,7 @@ Event-driven code execution for **micro/nano-services**.
 #### 🔗 Azure Logic Apps
 No/low-code **orchestration** for apps, data, and business processes.
 
-- **Connectors**: 200+ managed connectors (Office 365, Salesforce, SAP, Service Bus, SQL, Storage, etc.).
+- **Connectors**: 200+ managed connectors (Office 365, Salesforce, SAP, Service Bus, SQL, Storage, etc).
 - **Workflows**: Triggers → Actions, conditions, loops, parallel branches, exception handling.
 
 > **Use cases**: System integration, approvals, data sync, RPA alternatives, enterprise workflows.

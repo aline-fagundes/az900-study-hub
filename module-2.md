@@ -670,7 +670,54 @@ Build and deploy conversational bots.
 
 ---
 
+### ⚡ Serverless Computing
 
+**Serverless** is a cloud execution model where you run code or workflows **without managing servers**. The platform **auto-scales**, handles **infrastructure**, and you pay for **actual usage** (events/executions), not idle capacity.
+
+---
+
+#### 🧩 Azure Functions (FaaS)
+Event-driven code execution for **micro/nano-services**.
+
+- **Triggers & Bindings**: Respond to events (HTTP, Timer, Queue/Service Bus, Blob, Event Grid, Event Hubs, Cosmos DB, etc) with input/output bindings.
+- **Languages**: .NET/.NET Core, Java, Node.js, Python, PowerShell.
+- **State**: Default **stateless**; use **Durable Functions** for stateful workflows/orchestrations (fan-out/in, chaining, human interaction).
+- **Scaling**: Automatic (event-driven); can scale to zero.
+- **Plans/Pricing**:
+  - **Consumption**: Pay-per-execution and compute time (*cold starts possible*).
+  - **Premium**: Pre-warmed instances, VNET integration, no cold start.
+  - **Dedicated (App Service plan)**: Fixed capacity; useful when sharing with existing App Service.
+
+**Use cases**: APIs, webhooks, file processing, scheduled jobs, event processing, ETL steps.
+
+---
+
+#### 🔗 Azure Logic Apps
+No/low-code **orchestration** for apps, data, and business processes.
+
+- **Connectors**: 200+ managed connectors (Office 365, Salesforce, SAP, Service Bus, SQL, Storage, etc.).
+- **Workflows**: Triggers → Actions, conditions, loops, parallel branches, exception handling.
+
+**Use cases**: System integration, approvals, data sync, RPA alternatives, enterprise workflows.
+
+---
+
+#### 📮 Azure Event Grid
+**Publish–subscribe** eventing for near real-time apps.
+
+- **Sources**: Many Azure services (Storage, Resource Groups, IoT Hub), custom topics/domains.
+- **Handlers**: Functions, Logic Apps, Webhooks, Service Bus, Event Hubs, etc.
+- **Features**: At-least-once delivery, filtering/advanced routing, retry & dead-letter.
+- **Scale**: High throughput, low-latency event distribution.
+
+**Use cases**: Reactive architectures, resource lifecycle events, decoupled microservices.
+
+---
+
+#### 🧭 Related Messaging Services (Know the Role)
+- **Azure Service Bus**: Enterprise **messages/queues/topics** with ordering, sessions, transactions, dead-lettering (**commands** pattern).
+- **Azure Event Hubs**: **Telemetry ingestion** at massive scale (streaming events; **ingest** pattern).
+- **Event Grid**: **Event routing**/notifications (react **to** events; **notify** pattern).
 
 ---
 
@@ -763,3 +810,11 @@ Build and deploy conversational bots.
 - **Azure Products**: [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/?WT.mc_id=AZ-MVP-5003556)
 - **Microsoft Learn**: [What is Azure Machine Learning?](https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2&WT.mc_id=AZ-MVP-5003556)
 - **Microsoft Learn (Module)**: [Get started with AI fundamentals](https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/1-introduction?WT.mc_id=AZ-MVP-5003556)
+
+### ⚡ **Serverless Computing**
+- **Azure Products**: [Azure Functions](https://azure.microsoft.com/en-us/products/functions/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure Functions Documentation](https://learn.microsoft.com/en-us/azure/azure-functions/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure Logic Apps](https://azure.microsoft.com/en-us/products/logic-apps/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure Logic Apps Documentation](https://learn.microsoft.com/en-us/azure/logic-apps/?WT.mc_id=AZ-MVP-5003556)
+- **Azure Products**: [Azure Event Grid](https://azure.microsoft.com/en-us/products/event-grid/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure Event Grid Documentation](https://learn.microsoft.com/en-us/azure/event-grid/overview?WT.mc_id=AZ-MVP-5003556)

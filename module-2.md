@@ -721,6 +721,38 @@ No/low-code **orchestration** for apps, data, and business processes.
 
 ---
 
+### 🚀 DevOps
+
+**DevOps** combines **Development (Dev)** and **Operations (Ops)** practices to deliver software **faster and more reliably**. Core ideas include **Continuous Integration (CI)**, **Continuous Delivery/Deployment (CD)**, collaboration, automation, and monitoring.
+
+---
+
+#### 🧰 Azure DevOps Services (SaaS)
+A suite of services for planning, coding, building, testing, and releasing software.
+
+- **Boards** – Agile planning & tracking (Epics/Features/Stories/Tasks, Kanban/Scrum, backlogs, dashboards).
+- **Repos** – Git repositories with pull requests, code reviews, branch policies.
+- **Pipelines** – **CI/CD** with YAML/classic pipelines; build, test, and deploy to Azure and beyond. 
+  - Hosted agents (Microsoft-provided) or self-hosted agents.
+  - Environments, approvals/checks, multi-stage releases.
+- **Test Plans** – Manual & exploratory testing, test suites, traceability.
+- **Artifacts** – Package management (NuGet, npm, Maven, Python), versioning, retention.
+- **Extensions Marketplace** (1,000+ add-ons) and REST APIs.
+- Works with **ARM/Bicep/Terraform** for **Infrastructure as Code (IaC)**.
+- Can integrate with **GitHub** (source) and **GitHub Actions** (CI/CD).
+
+---
+
+#### 🧪 Azure DevTest Labs (PaaS)
+Create cost-controlled **self-service dev/test environments**.
+
+- Quick provisioning of **preconfigured VM templates** and reusable **artifacts** (tools, scripts).
+- **Policies**: quotas, VM sizes, **auto-shutdown**, cost tracking.
+- Share **custom images**, automate via **ARM/Bicep/CLI** and pipeline plugins.
+- Ideal for **sandboxing**, training, and reproducible test setups.
+
+---
+
 ## 📚 Study Resources
 
 ### 🧩 **Core Azure Architecture**
@@ -818,3 +850,9 @@ No/low-code **orchestration** for apps, data, and business processes.
 - **Microsoft Learn**: [Azure Logic Apps Documentation](https://learn.microsoft.com/en-us/azure/logic-apps/?WT.mc_id=AZ-MVP-5003556)
 - **Azure Products**: [Azure Event Grid](https://azure.microsoft.com/en-us/products/event-grid/?WT.mc_id=AZ-MVP-5003556)
 - **Microsoft Learn**: [Azure Event Grid Documentation](https://learn.microsoft.com/en-us/azure/event-grid/overview?WT.mc_id=AZ-MVP-5003556)
+
+### 🛠️ **DevOps**
+- **Azure Products**: [Azure DevOps](https://azure.microsoft.com/en-us/products/devops/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure DevOps Documentation](https://learn.microsoft.com/en-us/azure/devops/?view=azure-devops&viewFallbackFrom=azure-devops%3Fwt.mc_id%3Daz-mvp-5003556)
+- **Azure Products**: [Azure DevTest Labs](https://azure.microsoft.com/en-us/products/devtest-lab/?WT.mc_id=AZ-MVP-5003556)
+- **Microsoft Learn**: [Azure DevTest Labs Overview](https://learn.microsoft.com/en-us/azure/devtest-labs/devtest-lab-overview?WT.mc_id=AZ-MVP-5003556)

@@ -260,7 +260,14 @@ A **Virtual Network (VNet)** is a fundamental building block for private network
 
 **Capabilities**:
 - **Subnets**: Segment networks into smaller address spaces.
-- **NSGs / ASGs**: Apply security rules to control inbound/outbound traffic.
+- **NSGs** (Network Security Groups) / **ASGs** (Application Security Groups): Apply security rules to control inbound/outbound traffic.
+  - NSG rules are created by specifying:
+    - Source/Destination (IP addresses, service tags, application security groups);
+    - Protocol (TCP, UDP, any);
+    - Port (or Port Ranges, ex. 3389 – RDP, 22 – SSH, 80 HTTP, 443 HTTPS);
+    - Direction (inbound or outbound);
+    - Priority (order of evaluation).
+  - ASGs allows logical **grouping of virtual network resources**, simplifying management by referencing groups instead of IPs.
 - **Private/Public Endpoints**: Enable internal or internet-facing communication.
 - **Hybrid connectivity**: Communicate with on-premises networks via **VPN Gateway** or **ExpressRoute**.
 

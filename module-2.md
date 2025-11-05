@@ -273,6 +273,38 @@ A **Virtual Network (VNet)** is a fundamental building block for private network
 
 > 🔸 Use VNets to build hybrid solutions or secure internal app communication.
 
+#### 🧭 Routing & User-Defined Routes (UDRs)
+**Routing** is the process of selecting a path for traffic within or across networks.
+
+- **System routes**: Azure provides default routes for intra-VNet, VNet-to-VNet, and internet traffic.
+- **User-Defined Routes (UDRs)**: Custom, **static** routes that **override** or **extend** Azure’s system routes.
+- **Route tables**: Managed via an **Azure Route Table** resource and **associated to subnets**.
+- **Use cases**: Force traffic through a **firewall/NVA**, custom egress paths, hub-and-spoke architectures.
+
+> UDRs apply at the **subnet** level and let you **override default routing** for fine-grained control.
+
+#### 🔥 Azure Firewall (PaaS)
+A **managed, cloud-based, stateful firewall** that centralizes inbound/outbound filtering.
+
+- **Fully managed** with built-in **high availability** and **scalability**.
+- **Rule types**: **Application rules** (FQDN/URLs), **Network rules** (5-tuple), **DNAT/SNAT**.
+- **Threat intelligence**: Optional allow/alert/deny based on known bad IPs/domains.
+- **Logging & analytics**: Integrated with **Azure Monitor** and **Log Analytics**.
+- **Tiers**: **Standard** (core L3–L7 filtering) and **Premium** (TLS inspection, IDPS, URL filtering).
+  
+> Azure Firewall is **PaaS** and supports **FQDN filtering** and **DNAT**.
+
+#### 🛡️ Azure DDoS Protection
+Protects Azure resources from **DoS/DDoS** attacks (malicious traffic floods).
+
+- **Tiers**:
+  - **Basic**: Platform-level protections **enabled by default** for all Azure services;
+  - **Standard**: **VNet-based** protection with **adaptive tuning**, detailed telemetry, and **cost protection** for scale-out during an attack.
+- **Works with**: Public endpoints behind **Load Balancer**, **Application Gateway**, **Azure Firewall**, or **VMs** with public IPs.
+- **Visibility**: Attack analytics, metrics, and alerting through **Azure Monitor**.
+  
+> **DDoS Standard** is **enabled per VNet**, adds adaptive mitigation plus reporting, and includes **cost protection**.
+
 #### 🔁 Azure Load Balancer
 A **Layer 4 (TCP/UDP) load balancer** that distributes traffic across resources for performance and redundancy.
 

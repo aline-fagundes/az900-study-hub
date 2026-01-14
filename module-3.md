@@ -100,22 +100,66 @@ Grant **fine-grained** access at the right **scope**.
 - Uses **Microsoft Entra ID** identities (users, groups, service principals, managed identities).
 
 ### 🔐 Resource Locks
-Protect critical resources from accidental changes.
 
-- **CanNotDelete** and **ReadOnly** locks
-- Applied at **resource** or **resource group** (inherits down).
+Protect critical resources from **accidental deletion or modification**. Locks work **with** RBAC—permissions alone aren’t enough to bypass a lock; the lock must be removed first.
+
+- **Lock types**
+  - **CanNotDelete** — All operations except **delete** are allowed.
+  - **ReadOnly** — Only **read** operations are allowed; create/update/delete (write) operations are blocked.
+
+- **Scope & inheritance**
+  - Locks can be applied at **Subscription → Resource Group → Resource**.
+  - Locks are **inherited downward** (a lock on a resource group applies to all resources inside it).
+  - If multiple locks apply, the **most restrictive** takes precedence.
+  - **Management groups cannot be locked**.
+
+- **Who can manage locks**
+  - Built-in roles that can create/remove locks: **Owner** and **User Access Administrator**. 
 
 ### 🏷️ Tags
-Key–value metadata for **organization**, **cost allocation**, and **automation**.
+**Key–value metadata** for **organization**, **governance**, **cost management**, and **automation**.
 
-- Apply at resource/RG/subscription; use **Azure Policy** to **enforce/append** tags.
+- **Where you can tag**
+  - **Resources**, **Resource Groups**, and **Subscriptions**.
+  - ⚠️ **Not inherited by default** from Resource Group/Subscription. Use **Azure Policy** to **enforce or auto-apply** required tags.
+
+- **Common tagging strategies**
+  - **Environment**: `environment=prod|dev|test`
+  - **Cost/Finance**: `costCenter=1234`, `department=Finance`, `project=ContosoApp`
+  - **Ownership**: `owner=alice@contoso.com`, `team=Platform`
+  - **Classification/Compliance**: `dataClass=Confidential`, `retention=1year`
+  - **Ops**: `app=webapi`, `tier=frontend`, `region=westus2`
+
+- **Governance & operations**
+  - Use **Azure Policy** to **require**, **validate**, or **auto-correct** tags (Append/Modify/Deny).
+  - Query estate with **Azure Resource Graph** (KQL) using tags.
+  - In **Cost Management**, **filter/group** costs by tags for showback/chargeback.  
+    *Note*: Tag-based cost reporting applies **from the time tags are set**.
 
 ### 🧯 Azure Policy
-Create and assign **policy definitions** to **enforce compliance**.
+**Azure Policy** enforces **governance and compliance** by evaluating **resource properties** at scale (whereas **RBAC** governs **who can do what**).
 
-- **Effects**: **Deny**, **Audit**, **Append**, **Modify**, **DeployIfNotExists**.
-- Group multiple policies as an **Initiative (policy set)**.
-- Evaluate and remediate **at scale** across scopes.
+- **Policy definition**: Describes a rule (IF condition on resource properties, THEN **effect**).
+    - Common **effects**: **Deny**, **Audit**, **AuditIfNotExists**, **Append**, **Modify**, **DeployIfNotExists**.
+    - Examples: **Allowed locations**, **allowed SKUs**, **allowed resource types**, **require/inherit tags**, **require encryption**.
+  - **Initiative (policy set)**: A **group** of policy definitions managed as a single item.
+  - **Assignment**: Applies a **definition or initiative** to a **scope**.
+
+- **Scopes & exclusions**
+  - Assign at **Management Group → Subscription → Resource Group → Resource** (inherits to child scopes).
+  - Add **exclusions** to carve out exceptions.
+
+- **Evaluation & remediation**
+  - Evaluated on **create/update** and **periodically** for existing resources to produce **compliance state**.
+  - Use **Remediation tasks** (often with a **managed identity**) to **auto-fix** non-compliant resources for effects like **Modify**/**DeployIfNotExists**.
+
+- **Built-in vs custom**
+  - Start with **built-in** policies and initiatives for common standards (security, cost, locations).
+  - Create **custom** definitions (JSON) for org-specific rules.
+
+- **Operations & reporting**
+  - View posture in **Azure Policy compliance dashboard**.
+  - Combine with **Tags**, **RBAC**, and **Management Groups** for layered governance.
 
 > ℹ️ **Blueprints** have been superseded by **Template Specs** and **Deployment Stacks** for packaging and governing deployment artifacts.
 
@@ -171,8 +215,14 @@ Azure provides SLAs per service.
 ### 🧭 **Governance**
 - **Docs**: [RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview)
 - **Docs**: [Resource Locks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
+- **Docs**: [Lock resources (Azure Resource Manager)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?WT.mc_id=AZ-MVP-5003556&tabs=json)
+- **Docs**: [Use resource locks to protect resources](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/6-use-resource-locks-to-protect-resources?WT.mc_id=AZ-MVP-5003556)  
 - **Docs**: [Tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources)
+- **Microsoft Learn (Module)**: [Use tagging to organize resources](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/3-use-tagging-to-organize-resources?WT.mc_id=AZ-MVP-5003556)  
+- **Docs**: [Tag resources to logically organize your Azure assets](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?WT.mc_id=AZ-MVP-5003556)
 - **Docs**: [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
+- **Microsoft Learn**: [Azure Policy overview](https://learn.microsoft.com/en-us/azure/governance/policy/overview)  
+- **Microsoft Learn (Module)**: [Control and organize with Azure Resource Manager – Azure Policy](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/?WT.mc_id=AZ-MVP-5003556)
 - **Docs**: [Management Groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview)
 
 ### 💵 **Cost & SLAs**
